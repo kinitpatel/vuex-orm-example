@@ -1,5 +1,6 @@
 import { Person } from './';
-// Base entity.
+
+// Sub entity.
 export class Adult extends Person {
 	static entity = 'adult';
 	static baseEntity = 'person';

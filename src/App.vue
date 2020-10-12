@@ -7,11 +7,39 @@
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
+import { Person, Adult, Child } from './models';
 
 export default {
   name: 'App',
   components: {
     HelloWorld
+  },
+  async created() {
+    await Person.insert({
+      data: {
+        id: 'poe',
+        name: 'Poe',
+        type: 'adult',
+      }
+    });
+
+    await Adult.insert({
+      data: {
+        id: 'addy',
+        name: 'Addy',
+      }
+    })
+
+    await Child.insert({
+      data: {
+        id: 'chad',
+        name: 'Chad',
+      }
+    });
+
+    const persons = await Person.all();
+
+    console.log('persons', persons);
   }
 }
 </script>
